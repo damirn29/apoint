@@ -1,11 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Запись к врачу</title>
+    <link rel="stylesheet" href="{% static 'doctors/css/index.css' %}">
 </head>
 <body>
     <h1>Запись к врачу: {{ doctor_name }}</h1>
-    <form method="post">
+    <h2>Расписание:</h2>
+    <ul>
+        {% for schedule in shedule %}
+            <li>Дата: {{ schedule.date }}. <br> Начало приёма: {{ schedule.start_time }}. <br> Конец приёма: {{ schedule.end_time }}. <br> Доступных слотов: {{ schedule.available_slots }}</li>
+        {% endfor %}
+    </ul>
+    <form id="appointment-form" method="post">
         {% csrf_token %}
         {{ form }}
         <button type="submit">Записаться</button>

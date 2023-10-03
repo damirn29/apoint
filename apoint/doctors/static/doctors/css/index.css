@@ -1,0 +1,80 @@
+h1, h2 {
+    color: #333;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul li {
+    margin-bottom: 10px;
+}
+form {
+    margin: 50px auto;
+    width: 40%;
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+}
+form input, form textarea, form select {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form button {
+    padding: 10px 15px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+form button:hover {
+    background-color: #333;
+}
+
+form label {
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #282828;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 25px;
+}
+h2 {
+    color: #888888;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+    margin-top: 30px;
+}
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.shedule-item {
+    width: 40%;
+    border: 1px solid #CCC;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+.shedule-item .date, 
+.shedule-item .start_time,
+.shedule-item .end_time, 
+.shedule-item  .available_slots{
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+}
+
+.shedule-item .available_slots{
+    color: rgb(43, 255, 0);
+}
