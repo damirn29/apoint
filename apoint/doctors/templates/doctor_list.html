@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список врачей</title>
+</head>
+<body>
+    <h1>Список врачей</h1>
+    <ul>
+        {% for doctor in doctors %}
+        <li> <a href="{% url 'doctor-name' doctor.name %}">{{ doctor.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

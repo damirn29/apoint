@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Запись к врачу</title>
+</head>
+<body>
+    <h1>Запись к врачу: {{ doctor_name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Записаться</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список врачей</title>
+</head>
+<body>
+    <h1>Список Направлений</h1>
+    <ul>
+        {% for specialization in specializations %}
+        <li> <a href="{% url 'spec-name' specialization.name %}">{{ specialization }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
