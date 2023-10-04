@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="{% static 'doctors/css/index.css' %}">
 </head>
 <body>
-    <h1>Запись к врачу: {{ doctor_name }}</h1>
-    <h2>Расписание:</h2>
-    <ul>
+    <h1 class="appointment-title">Запись к врачу: {{ doctor_name }}</h1>
+    <h2 class="schedule-title">Расписание:</h2>
+    <ul class="schedule-list">
         {% for schedule in shedule %}
-            <li>Дата: {{ schedule.date }}. <br> Начало приёма: {{ schedule.start_time }}. <br> Конец приёма: {{ schedule.end_time }}. <br> Доступных слотов: {{ schedule.available_slots }}</li>
+            <li class="schedule-item">Дата: {{ schedule.date }}. <br> Начало приёма: {{ schedule.start_time }}. <br> Конец приёма: {{ schedule.end_time }}. <br> Доступных слотов: {{ schedule.available_slots }}</li>
         {% endfor %}
     </ul>
+    
     <form id="appointment-form" method="post">
         {% csrf_token %}
         {{ form }}
