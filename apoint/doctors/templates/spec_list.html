@@ -4,12 +4,25 @@
 <head>
     <title>Список врачей</title>
     <link rel="stylesheet" href="{% static 'doctors/css/list.css' %}">
+    <style>
+        .no-doctors {
+            color: red;
+        }
+        
+        .has-doctors {
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <h1>Список Направлений</h1>
     <ul>
         {% for specialization in specializations %}
-        <li> <a href="{% url 'spec-name' specialization.name %}">{{ specialization }}</a></li>
+        <li> 
+          <a class="{% if specialization.num_doctors == 0 %}no-doctors{% else %}has-doctors{% endif %}" 
+            href="{% url 'spec-name' specialization.name %}">{{ specialization }} ({{ specialization.num_doctors }} врач(ей))
+          </a>
+        </li>
         {% endfor %}
     </ul>
 </body>

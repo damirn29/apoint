@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from .models import Specialization, Doctor, Schedule, Appointment
 from .forms import DoctorАppoint
 from patients.models import Patient
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
+from django.db.models import Count
 
 def doctors_spec(request):
-    specializations = Specialization.objects.all()
+    specializations = Specialization.objects.all().annotate(num_doctors=Count('doctor'))
     return render(request, 'spec_list.html', {'specializations': specializations})
+
 
 def doctors_list(request, spec_name):
     specialization = get_object_or_404(Specialization, name=spec_name)
