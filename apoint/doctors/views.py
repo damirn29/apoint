@@ -1,11 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Specialization, Doctor, Schedule, Appointment
 from .forms import DoctorАppoint
 from patients.models import Patient
 from django.shortcuts import get_object_or_404
+from django.urls import reverse
 
-# Create your views here.
 def doctors_spec(request):
     specializations = Specialization.objects.all()
     return render(request, 'spec_list.html', {'specializations': specializations})
@@ -44,7 +44,16 @@ def doctors_appoint(request, doctor_name):
                                          appointment_date=available_slot.date,
                                          appointment_time=available_slot.start_time)
                 appointment.save()
+                return redirect(reverse('appointment_detail', args=[appointment.id]))  # перенаправление на новую страницу
 
             else:
-                context['error'] = 'Sorry, there are no available slots at this time. Please, choose another doctor or check back later.'
+                context['error'] = 'К сожалению, в данный момент свободных мест нет. Пожалуйста, выберите другого врача или зайдите позже.'
     return render(request, 'doctor_appoint.html', context)
+
+def appointment_detail(request, appointment_id):
+    appointment = get_object_or_404(Appointment, id = appointment_id)
+    context = {
+        'appointment': appointment
+    }
+    return render(request, 'appointment_detail.html', context)
+

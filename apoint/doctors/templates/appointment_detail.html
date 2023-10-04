@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Информация о записи</title>
+    <style>
+        body{
+            width:40%;
+            margin: 0 auto;
+        }
+        .app-info {
+            padding: 20px;
+            background-color: #f1f1f1;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .header {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            margin-bottom: 10px;
+        }
+        .title {
+            font-weight: bold;
+            display: inline-block;
+            min-width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header">Информация о записи</h1>
+    
+    <div class="app-info">
+        <p class="info-item"><span class="title">Номер записи:</span> {{ appointment.id }}</p>
+        <p class="info-item"><span class="title">Пациент:</span> {{ appointment.patient.full_name }}</p>
+        <p class="info-item"><span class="title">Врач:</span> {{ appointment.doctor.name }}</p>
+        <p class="info-item"><span class="title">Дата и время записи:</span> {{ appointment.appointment_date }} {{ appointment.appointment_time }}</p>
+    </div>
+</body>
+</html>
