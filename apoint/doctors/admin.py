@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import Doctor, Schedule, Appointment, Specialization
+from import_export.admin import ExportActionMixin
+from .export import MyModelResource
 
 
 class AppointmentInline(admin.TabularInline):
@@ -7,7 +9,8 @@ class AppointmentInline(admin.TabularInline):
     extra = 1
 
 @admin.register(Doctor)
-class ShowDoctors(admin.ModelAdmin):
+class ShowDoctors(ExportActionMixin, admin.ModelAdmin):
+    resource_class = MyModelResource
     list_display = ['id', 'name', 'specialization']
     list_editable = ['name', 'specialization']
     list_filter = ['specialization']
@@ -37,3 +40,5 @@ class ShowAppointment(admin.ModelAdmin):
 class ShowSpecialization(admin.ModelAdmin):
     list_display = ['id', 'name']
     list_editable = ['name']
+
+

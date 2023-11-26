@@ -1,4 +1,5 @@
 from django.db import models
+from simple_history.models import HistoricalRecords
 
 class Specialization(models.Model):
     name = models.CharField(max_length=100)
@@ -12,6 +13,7 @@ class Doctor(models.Model):
     specialization = models.ForeignKey(Specialization, on_delete=models.CASCADE)
     working_date = models.DateField()
     contact_number = models.CharField(max_length=20)
+    history = HistoricalRecords() # отслеживание истории изменения модели
 
     def __str__(self):
         return self.name
@@ -23,6 +25,7 @@ class Schedule(models.Model):
     end_time = models.TimeField()
     available_slots = models.IntegerField()
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    history = HistoricalRecords() # отслеживание истории изменения модели
 
     def __str__(self):
         return f"Schedule {self.id}"
@@ -34,6 +37,7 @@ class Appointment(models.Model):
     schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
     appointment_date = models.DateField()
     appointment_time = models.TimeField()
+    history = HistoricalRecords() # отслеживание истории изменения модели
 
     def __str__(self):
         return f"Appointment {self.id}"
