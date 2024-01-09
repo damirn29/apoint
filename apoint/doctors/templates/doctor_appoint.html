@@ -2,121 +2,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Запись к врачу</title>
+    <title>Doctor's appointment</title>
     <link rel="stylesheet" href="{% static 'doctors/css/index.css' %}">
-    <style>
-        h1, h2 {
-            color: #333;
-        }
-        ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        form {
-            margin: 50px auto;
-            width: 40%;
-            background-color: #fff; 
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
-        }
-        form input, form textarea, form select {
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-        
-        form button {
-            padding: 10px 15px;
-            background-color: #555;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 3px;
-        }
-        form button:hover {
-            background-color: #333;
-        }
-        
-        form label {
-            margin-bottom: 20px;
-        }
-        
-        h1 {
-            color: #282828;
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            font-size: 25px;
-        }
-        h2 {
-            color: #888888;
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            font-size: 20px;
-            margin-top: 30px;
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .appointment-title, .schedule-title {
-            font-family: 'Roboto', sans-serif; 
-            color: #333; 
-        }
-        
-        .appointment-title {
-            font-size: 2em;
-            margin-bottom: 0.5em;
-        }
-        
-        .schedule-title {
-            font-size: 1.5em;
-            margin-bottom: 1em;
-        }
-        
-        .schedule-list {
-            width: 40%;
-            margin: 0 auto;
-            list-style: none;
-            padding-left: 0;
-            box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-        }
-        
-        .schedule-item {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1em;
-            color: #000000;
-            background-color: #ffffff;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-radius: 10px;
-        }
-        
-        </style>
 </head>
 <body>
-    <h1 class="appointment-title">Запись к врачу: {{ doctor_name }}</h1>
-    <h2 class="schedule-title">Расписание:</h2>
+    <h1 class="appointment-title">Doctor's appointment: {{ doctor_name }}</h1>
+    <h2 class="schedule-title">Schedule:</h2>
     {% if error %}
         <p>{{ error }}</p>
     {% endif %}
     <ul class="schedule-list">
         {% for schedule in shedule %}
-            <li class="schedule-item">Дата: {{ schedule.date }}. <br> Начало приёма: {{ schedule.start_time }}. <br> Конец приёма: {{ schedule.end_time }}. <br> Доступных слотов: {{ schedule.available_slots }}</li>
+            <li class="schedule-item">Date: {{ schedule.date }}. <br> The beginning of the reception: {{ schedule.start_time }}. <br> End of reception:{{ schedule.end_time }}. <br> Available slots: {{ schedule.available_slots }}</li>
         {% endfor %}
     </ul>
 
     <form id="appointment-form" method="post">
         {% csrf_token %}
         {{ form }}
-        <button type="submit">Записаться</button>
+        <button type="submit">Sign up</button>
     </form>
 </body>
 </html>

@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f6f6f6;
+            background-color: white;
         }
         
         h1 {
@@ -19,7 +19,7 @@
         }
         
         ul {
-            width: 40%;
+            width: 30%;
             margin: auto;
             list-style: none;
             padding-left: 0px;
@@ -32,6 +32,7 @@
             margin-bottom: 10px;
             border-radius: 5px;
             transition: box-shadow .3s;
+            background-color: #ffffff;
         }
         
         ul li:hover {
@@ -65,12 +66,12 @@
     </style>
 </head>
 <body>
-    <h1>Список Направлений</h1>
+    <h1>List of doctors' specializations</h1>
     <ul>
         {% for specialization in specializations %}
         <li>
           <a class="{% if specialization.num_doctors == 0 %}no-doctors{% else %}has-doctors{% endif %}"
-            href="{% url 'spec-name' specialization.name %}">{{ specialization }} ({{ specialization.num_doctors }} врач(ей))
+            href="{% url 'spec-name' specialization.name %}">{{ specialization }} ({{ specialization.num_doctors }} doctors)
           </a>
         </li>
         {% endfor %}

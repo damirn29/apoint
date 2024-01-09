@@ -12,7 +12,7 @@ ul li {
 form {
     margin: 50px auto;
     width: 40%;
-    background-color: #fff; 
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
@@ -28,14 +28,14 @@ form input, form textarea, form select {
 
 form button {
     padding: 10px 15px;
-    background-color: #555;
+    background-color: blue;
     color: #fff;
     border: none;
     cursor: pointer;
     border-radius: 3px;
 }
 form button:hover {
-    background-color: #333;
+    background-color: #00aeff;
 }
 
 form label {
@@ -90,4 +90,10 @@ ul {
     margin-bottom: 10px;
     padding: 15px;
     border-radius: 10px;
+}
+
+p{
+    color:red;
+    width: 30%;
+    margin: 0 auto;
 }

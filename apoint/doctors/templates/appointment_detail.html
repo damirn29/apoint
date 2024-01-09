@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Информация о записи</title>
+    <title>Information about the doctor's appointment</title>
     <style>
         body{
             width:40%;
@@ -28,13 +28,12 @@
     </style>
 </head>
 <body>
-    <h1 class="header">Информация о записи</h1>
-    
+    <h1 class="header">Information about the record</h1>
     <div class="app-info">
-        <p class="info-item"><span class="title">Номер записи:</span> {{ appointment.id }}</p>
-        <p class="info-item"><span class="title">Пациент:</span> {{ appointment.patient.full_name }}</p>
-        <p class="info-item"><span class="title">Врач:</span> {{ appointment.doctor.name }}</p>
-        <p class="info-item"><span class="title">Дата и время записи:</span> {{ appointment.appointment_date }} {{ appointment.appointment_time }}</p>
+        <p class="info-item"><span class="title">Entry number:</span> {{ appointment.id }}</p>
+        <p class="info-item"><span class="title">Appointment number:</span> {{ appointment.patient.full_name }}</p>
+        <p class="info-item"><span class="title">Doctor:</span> {{ appointment.doctor.name }}</p>
+        <p class="info-item"><span class="title">Date and time of appointment:</span> {{ appointment.appointment_date }} {{ appointment.appointment_time }}</p>
     </div>
 </body>
 </html>
